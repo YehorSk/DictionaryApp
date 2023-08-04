@@ -48,6 +48,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             word_original = itemView.findViewById(R.id.word_original);
             word_translation = itemView.findViewById(R.id.word_translation);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   if(recyclerViewInterface != null){
+                       int pos = getAdapterPosition();
+                       if(pos != RecyclerView.NO_POSITION){
+                           recyclerViewInterface.onItemClick(pos);
+                       }
+                   }
+                }
+            });
         }
     }
 }
