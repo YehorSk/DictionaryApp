@@ -21,42 +21,42 @@
         app:layout_constraintStart_toStartOf="@id/guideline5" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/word_original"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name"
+        android:hint="Name"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/word_translation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Word translation"
+        android:hint="Word translation"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/word_original" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/word_description"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:ems="10"
         android:gravity="start"
         android:inputType="text"
-        android:text="Word description"
+        android:hint="Word description"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="@id/guideline6"
         app:layout_constraintStart_toStartOf="@id/guideline5"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/word_translation" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline5"
