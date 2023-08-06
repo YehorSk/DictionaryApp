@@ -1,5 +1,5 @@
 # DictionaryApp
-Current functionality of this app:
--Add words
--Delete words
-All words are stored using SharedPreferences.
+Current functionality of this app: <br />  
+-Add words <br>  
+-Delete words <br>  
+All words are stored locally using SharedPreferences.
