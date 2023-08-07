@@ -24,4 +24,8 @@ public class Word {
         return this.word_description;
     }
 
+    public void setWord_original(String text){this.word_original=text;}
+    public void setWord_translate(String text){this.word_translate=text;}
+    public void setWord_description(String text){this.word_description=text;}
+
 }

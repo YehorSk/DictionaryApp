@@ -1,12 +1,16 @@
 package com.example.dictionaryapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +23,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.zip.Inflater;
 
 public class MainActivity extends AppCompatActivity implements RecyclerViewInterface {
 
@@ -36,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         if(extras!=null){
             words.add(new Word(getIntent().getStringExtra("word_orig"),getIntent().getStringExtra("word_trans"),getIntent().getStringExtra("word_descr")));
             Toast.makeText(MainActivity.this, "Word added!",Toast.LENGTH_LONG).show();
-
         }
     }
     @Override
@@ -93,5 +97,27 @@ public class MainActivity extends AppCompatActivity implements RecyclerViewInter
         words.remove(position);
         recyclerViewAdapter.notifyItemRemoved(position);
         Toast.makeText(MainActivity.this,"Word deleted!",Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu,menu);
+        MenuItem searchItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                recyclerViewAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return true;
+
     }
 }
